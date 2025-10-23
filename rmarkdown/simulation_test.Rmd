@@ -1,0 +1,22 @@
+---
+title: "simulation_test"
+output: html_document
+---
+
+```{r}
+# Load the package from the local directory
+devtools::load_all()
+
+# Load the package
+library(simulation)
+
+# Run the simulation with default parameters
+results <- run_simulation()
+cat(sprintf("Simulation completed with duration: %s\n", results$duration))
+cat(sprintf("Results: %s\n", toString(results$results)))
+
+# Run with a different duration
+long_results <- run_simulation(duration = 200)
+cat(sprintf("Longer simulation completed with duration: %s\n", long_results$duration))
+cat(sprintf("Number of results: %d\n", length(long_results$results)))
+```
